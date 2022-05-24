@@ -7,12 +7,13 @@ import static io.cucumber.junit.CucumberOptions.SnippetType.CAMELCASE;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/java/com/qa/features",
-        glue = "com/qa/step_definitions",
+        features = "src/test/resources",
+        glue = "src/test/java/com/qa/stepdef",
         plugin = {"pretty", "html:target/cucumber-reports","summary"},
         snippets=CAMELCASE,
         dryRun = true,
         monochrome = true
+
         //tags = "@smoke"
 
 )

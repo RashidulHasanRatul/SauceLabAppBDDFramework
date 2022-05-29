@@ -1,28 +1,40 @@
 package com.qa.stepdef;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class LoginStepDef {
-    @When("^I enter  username as \"([^\"]*)\"$")
-    public void iEnterUsernameAs(String string) {
-        // Write code here that turns the phrase above into concrete actions
+
+
+    @When("I enter  Invalid username as \"([^\"]*)\"$")
+    public void iEnterInvalidUsernameAs(String Invalidusername) {
+    }
+
+    @When("I enter  Valid username as \"([^\"]*)\"$")
+    public void iEnterValidUsernameAs(String validUsername) {
+    }
+
+
+    @And("I enter password as \"([^\"]*)\"$")
+    public void iEnterPasswordAs(String password) {
 
     }
-    @When("^I enter  password as \"([^\"]*)\"$")
-    public void iEnterPasswordAs(String string) {
-        // Write code here that turns the phrase above into concrete actions
 
+    @And("I enter InValidpassword as \"([^\"]*)\"$")
+    public void iEnterInValidpasswordAs(String invalidPass) {
     }
-    @When("^I click the login button \"([^\"]*)\"$")
+
+    @And("I click the login button")
     public void iClickTheLoginButton() {
-        // Write code here that turns the phrase above into concrete actions
-
     }
-    @Then("^Login should fail with an error message \"([^\"]*)\"$")
-    public void loginShouldFailWithAnErrorMessage(String string) {
-        // Write code here that turns the phrase above into concrete actions
 
+    @Then("Login should fail with an error message \"([^\"]*)\"$")
+    public void loginShouldFailWithAnErrorMessage(String errText) {
+    }
+
+    @Then("Login should sueccesfull and show Tittle \"([^\"]*)\"$")
+    public void loginShouldSueccesfullAndShowTittle(String arg0) {
     }
 
 }

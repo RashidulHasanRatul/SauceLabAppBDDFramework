@@ -1,22 +1,21 @@
 Feature: Product Page Scenario
-  scenario Outline: Validate product info at product page
 
-
-  Given User is logged in to the application
-  Then The product listed with <tittle> and <price>
-
-  Example: Login with invalid username
-  |tittle| price |
-  | Sauce Labs Bolt T-Shirt |$15.99|
-
-  scenario Outline: Validate product info at product details Page
+  Scenario Outline: Validate product info at product page
 
 
     Given User is logged in to the application
-    Then click on the product tittle <tittle>
-    Then The product details page should be displayed with <tittle> ,<price> and <description>
+    Then The product listed with "<tittle>" and "<price>"
+    Examples:
+      | tittle                  | price  |
+      | Sauce Labs Bolt T-Shirt | $15.99 |
 
 
-  Example: Login with invalid username
-  |tittle| price | description |
-  | Sauce Labs Backpack |$29.99|carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.|
+  Scenario Outline: Validate Product into at Product Details page
+
+    Given User is logged in to the application
+    When User clicks on the product "<tittle>"
+    Then The product details page is displayed
+    And The product details page contains "<tittle>"  "<price>" and "<description>"
+    Examples:
+      | tittle                  | price  | description                     |
+      | Sauce Labs Bolt T-Shirt | $15.99 | 100% Cotton, 200% Comfortable |

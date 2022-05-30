@@ -37,3 +37,17 @@ https://cucumber.io/docs/gherkin/step-organization/
 10.copy config.properties and log4j.xml
 ----------------------------------------
 log4j configuration : https://github.com/RashidulHasanRatul/AppiumTDDFramework
+--------------------------------------
+11.Copy test utlis class to src/main/java/com/qa/util
+-------------------------------
+12.create hook under src/test/java/stepdef
+--------------------------------------
+13.create global pattern under src/main/java/com/qa/util
+---------------------------------
+platform,uiid,deviseName,systemport,chromedriverport,wda localport,webkit debug proxy port
+14.initialize global param and add thread context for log4j before hook
+---------------------------------
+15.create server manager
+---------------------------------
+programmatically open appium server
+16.start server before hook and stop after hook

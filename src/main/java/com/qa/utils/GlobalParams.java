@@ -4,7 +4,7 @@ package com.qa.utils;
 public class GlobalParams {
     private static ThreadLocal<String> platformName = new ThreadLocal<>();
     private static ThreadLocal<String> udid = new ThreadLocal<>();
-    private static ThreadLocal<String> deviseName = new ThreadLocal<>();
+    private static ThreadLocal<String> deviceName = new ThreadLocal<>();
     private static ThreadLocal<String> systemPort = new ThreadLocal<>();
     private static ThreadLocal<String> chromeDriverPort = new ThreadLocal<>();
 
@@ -25,13 +25,13 @@ public class GlobalParams {
     public static String getUdid() {
         return GlobalParams.udid.get();
     }
-    // setter method for deviseName
-    public static void setDeviseName(String deviseName){
-        GlobalParams.deviseName.set(deviseName);
+    // setter method for deviceName
+    public static void setdeviceName(String deviceName){
+        GlobalParams.deviceName.set(deviceName);
     }
     // get devise name
-    public static String getDeviseName(){
-        return GlobalParams.deviseName.get();
+    public static String getdeviceName(){
+        return GlobalParams.deviceName.get();
     }
     // setter method for systemPort
     public static void setSystemPort(String systemPort){
@@ -54,7 +54,7 @@ public class GlobalParams {
         GlobalParams params = new GlobalParams();
         params.setPlatformName(System.getProperty("platformName", "Android"));
         params.setUdid(System.getProperty("udid", "emulator-5554"));
-        params.setDeviseName(System.getProperty("deviseName", "Pixel_4_API_27"));
+        params.setdeviceName(System.getProperty("deviceName", "Pixel_4_API_27"));
         params.setSystemPort(System.getProperty("systemPort", "1000"));
         params.setChromeDriverPort(System.getProperty("chromeDriverPort", "1100"));
 

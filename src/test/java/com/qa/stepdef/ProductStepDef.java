@@ -9,7 +9,6 @@ public class ProductStepDef {
 
     @Given("^I'm logged \"([^\"]*)\"$")
     public void iMLoggedIn() throws InterruptedException {
-
     }
 
 
@@ -29,7 +28,6 @@ public class ProductStepDef {
 
     @Then("The product details page is displayed")
     public void theProductDetailsPageIsDisplayed() {
-
     }
 
 

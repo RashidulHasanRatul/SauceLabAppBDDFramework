@@ -44,10 +44,17 @@ log4j configuration : https://github.com/RashidulHasanRatul/AppiumTDDFramework
 --------------------------------------
 13.create global pattern under src/main/java/com/qa/util
 ---------------------------------
-platform,uiid,deviseName,systemport,chromedriverport,wda localport,webkit debug proxy port
+platform,udid,deviceName,systemport,chromedriverport,(for ios =wda localport,webkitdebugproxyport)
 14.initialize global param and add thread context for log4j before hook
 ---------------------------------
 15.create server manager
 ---------------------------------
 programmatically open appium server
 16.start server before hook and stop after hook
+17.Create PropertyManager at main/java/com/qa/utils/PropertyManager.java
+18.Create Capability Manager
+19.Create Driver Manager
+20.Initialize driver to before hook and quit driver after hook(driver.quit() initialize to null)
+21.Add Base Page and Pageobject
+22.Update stepdefination file with actual code
+23.Execute Runner and "MVN Test" with parameters

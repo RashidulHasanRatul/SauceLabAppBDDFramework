@@ -8,7 +8,7 @@ public class PropertyManager {
     private static Properties prop = new Properties();
 
     // loading config properties
-    private  Properties getProp() throws IOException {
+    Properties getProp() throws IOException {
         InputStream is = null;
         String prosFileName = "config.properties";
         if (prop.isEmpty()) {

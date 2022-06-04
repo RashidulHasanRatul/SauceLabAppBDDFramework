@@ -1,45 +1,42 @@
 package com.qa.Pages;
 
-import com.qa.BaseTest;
+import com.qa.utils.GlobalParams;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class ProductDetailsPage extends BaseTest {
-    @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Description\"]/android.widget.TextView[1]")
-    public MobileElement SLBTitle;
-    @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Description\"]/android.widget.TextView[2]")
-    public MobileElement SLBText;
-    @AndroidFindBy(accessibility = "test-Price")
-    public MobileElement SLBPrice;
 
+    @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Description\"]/android.widget.TextView[1]\n" +
+            "")
+    private MobileElement title;
+
+    @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Description\"]/android.widget.TextView[2]"
+            + "")
+    private MobileElement desc;
 
     @AndroidFindBy(accessibility = "test-BACK TO PRODUCTS")
-    public MobileElement backToProductBtn;
+    private MobileElement backToProductsBtn;
 
 
-    public String getSLBTitle() {
-        System.out.println("SLBTittle is "+SLBTitle.getText());
-        return getAttribute(SLBTitle, "text");
-    }
-    public String getSLBTxt() {
-        System.out.println("SLBTxt is "+SLBText.getText());
-        return getAttribute(SLBText, "text");
+    public String getTitle() {
+        return getText(title, "title is: ");
     }
 
-    public String getSLBPrice() {
-        System.out.println("SLBTxt is "+SLBPrice.getText());
-        return getAttribute(SLBPrice, "text");
+    public String getDesc() {
+        return getText(desc, "description is: ");
     }
 
-    public ProductDetailsPage scrollToSLBPrice() {
-        System.out.println("SLBTxt is "+SLBPrice.getText());
-        scrollToElement();
-        return this;
+    public String getPrice() throws Exception {
+            return getText(andScrollToElementUsingUiScrollable("description", "test-Price"), "price is: ");
+
     }
 
-    public com.qa.tests.pages.ProductPage pressBackToProductPage(){
-        click(backToProductBtn);
-        return new com.qa.tests.pages.ProductPage();
+
+
+    public ProductPage pressBackToProductsBtn() {
+        click(backToProductsBtn);
+        return new ProductPage();
     }
+
 
 }

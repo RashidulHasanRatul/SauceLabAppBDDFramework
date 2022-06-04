@@ -1,32 +1,34 @@
 package com.qa.Pages;
-import com.qa.MenuPage;
+
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.openqa.selenium.By;
 
 public class ProductPage extends MenuPage {
 
-    
-    @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Cart drop zone\"]/android.view.ViewGroup/android.widget.TextView")
-    public MobileElement productTitleTxt;
+    @AndroidFindBy (xpath = "//android.widget.ScrollView[@content-desc=\"test-PRODUCTS\"]/preceding-sibling::android.view.ViewGroup/android.widget.TextView")
+    private MobileElement titleTxt;
 
-    @AndroidFindBy(xpath = "(//android.widget.TextView[@content-desc=\"test-Item title\"])[1]")
-    public MobileElement SLBTitle;
-    @AndroidFindBy(xpath = "(//android.widget.TextView[@content-desc=\"test-Price\"])[1]")
-    public MobileElement SLBPrice;
 
-    public String getProductTitle() {
 
-        return getAttribute(productTitleTxt, "text");
-    }
-    public String getSLBTitle() {
-        return getAttribute(SLBTitle, "text");
-    }
-    public String getSLBPrice() {
-        return getAttribute(SLBPrice, "text");
+    public String getTitle() {
+        return getText(titleTxt, "product page title is - ");
     }
 
-    public ProductDetailsPage pressSLBTitle(){
-        click(SLBTitle);
+    public String getProductTitle(String title) throws Exception {
+        return getText(andScrollToElementUsingUiScrollable("text", title), "product title is: " + title);
+    }
+
+    public By defProductPrice(String title) throws Exception {
+        return By.xpath("//*[@text=\"" + title + "\"]/following-sibling::*[@content-desc=\"test-Price\"]");
+    }
+
+    public String getProductPrice(String title, String price) throws Exception {
+        return getText(scrollToElement(defProductPrice(title), "up"), "product price is: " + price);
+    }
+
+    public ProductDetailsPage pressProductTitle(String title) throws Exception {
+        click(andScrollToElementUsingUiScrollable("text", title));
         return new ProductDetailsPage();
     }
 
